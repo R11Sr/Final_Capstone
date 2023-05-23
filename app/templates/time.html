@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block css %}{% endblock %}
+
+{% block main %}
+
+<div class="container">
+
+    {% include 'flash_messages.html' %}
+
+    <div class="card-header">
+        <h2 class="card-title"><i class="bi bi-calendar-week"></i> Timetables</h2>
+    </div>
+    <div class="form_container p-5 rounded-top" style="background-color: #CBC3E3;"> 
+
+
+    {% for key, timetable in timetables.items() %}
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+
+        <div class="card-body">
+                
+        <h3>Timetable {{ key }}</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th  style="background-color:  #CBC3E3;">Time</th>
+                    {% for day in days_of_week %}
+                        <th  style="background-color:  #CBC3E3;">{{ day }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for time_slot in time_slots %}
+                    <tr>
+                        <td>{{ time_slot }}</td>
+                        {% for day in days_of_week %}
+                            <td>{{ timetable[day][time_slot] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    {% endfor %}
+
+        
+
+    
+        
+</div>
+
+<a href="{{ url_for('download_pdf') }}" class="btn btn-primary">Download PDF</a>
+
+{% endblock %}
+
+{% block js %}{% endblock %}
+
+
+
+

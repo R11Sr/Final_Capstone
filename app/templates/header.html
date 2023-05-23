@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-purple fixed-top">
+
+    <a class="navbar-brand" href="{{url_for('form')}}"><i class="bi bi-table"></i> UWI Time and Place</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('form')}}">Add Course<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('paramsform')}}">Set Timetable Parameters<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('csvfileuploads')}}">Upload Files Form<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('download_timetable')}}">Timetable Generator</a>
+        </li>
+
+      </ul>
+
+
+    </div>
+  </nav>

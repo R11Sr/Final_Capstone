@@ -1,0 +1,17 @@
+.bg-purple {
+    background-color: #6c38a0; /* or any other shade of purple you prefer */
+  }
+
+body {
+    padding-top: 5rem;
+} 
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Display 5 checkboxes per row */
+    grid-gap: 10px; /* Add some spacing between checkboxes */
+}
+
+.card{
+    padding: 80px;
+}

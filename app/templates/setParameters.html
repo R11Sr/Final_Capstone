@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block css %}{% endblock %}
+
+{% block main %}
+<div class="card-header">
+    <h2 class="card-title"><i class="bi bi-clipboard-check"></i> Set Parameters Form</h2>
+</div>
+<div class="form_container p-5 rounded-top" style="background-color: #CBC3E3;"> 
+
+
+<div class="form_container"> 
+
+    {% include 'flash_messages.html' %}
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+
+        <div class="card-body">
+            <form action="/parameters" method="POST" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+
+                        
+                <div class="form-group">
+
+                    <h3 class="pt-2">Choose Population Size</h3>
+                    <p class="pt-4 pb-0">Note: This is where you choose the amount of timetables you would like the system to produce.</p>
+                    <br>
+                    <div class="checkbox-group">
+                        <div class="form-check">
+                            {{form.population_size(class="form-control")}}
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <h3 class="pt-4">Choose Max Generations</h3>
+                    <p class="pt-4 pb-0">Note: The system internally makes adjustments to timetables in groups. More groups produce better timetables, but the system takes longer to complete processing.  How many groups of timetables should the system loop over?</p>
+                    <br>
+                    <div class="checkbox-group">
+                            <div class="form-check">
+                                {{form.max_generations(class="form-control")}}
+                            </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <h3 class="pt-4">Choose Optimal Fitness Score</h3>
+                    <p class="pt-4 pb-0">Note: The system needs a measure of how good timetables are. A lower threshold means timetables will be more strict in placing sessions.  Choose a fitness score:</p>
+                    <br>
+                    <div class="checkbox-group">
+                        <div class="form-check">
+                            {{form.optimal_fitness_score(class="form-control", style="width:220px;")}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <h3 class="pt-4">Choose Max Runtime</h3>
+                    <p class="pt-4 pb-0">Note: How long would you like the system to run? A longer runtime produces better timetables.</p>
+                    <br>
+                    <div class="checkbox-group">
+                        <div class="form-check">
+                            {{form.max_runtime(class="form-control")}}
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                
+            </form>
+
+        </div>
+
+    </div>
+
+
+</div>
+    
+{% endblock %}
+
+{% block js %}{% endblock %}
+      

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block css %}{% endblock %}
+
+{% block main %}
+<div class="card-header">
+    <h2 class="card-title"><i class="bi bi-clipboard-check"></i> Upload Files Form</h2>
+</div>
+<div class="form_container p-5 rounded-top" style="background-color: #CBC3E3;"> 
+
+
+<div class="form_container"> 
+
+    {% include 'flash_messages.html' %}
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+
+        <div class="card-body">
+            <form action="{{ url_for('csvfileuploads') }}" method="POST" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+        
+        
+                <h3 class="pt-4">Upload Student Registration File</h3>
+                
+                <div class="form-group col-md-5">
+                    {{form.student_reg_file(class="form-control fileinput")}}
+                </div>
+
+                <h3 class="pt-4">Upload Lecturer Preferences File</h3>
+                
+                <div class="form-group col-md-5">
+                    {{form.lect_pref_file(class="form-control fileinput")}}
+                </div>
+        
+                        
+               
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                
+            </form>
+
+        </div>
+
+    </div>
+
+
+</div>
+    
+{% endblock %}
+
+{% block js %}{% endblock %}
+      
